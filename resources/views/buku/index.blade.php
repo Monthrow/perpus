@@ -45,7 +45,7 @@
                             <td>
                                 <form action="/buku/{{$item->id}}" id="delete-form">
                                     <a href="/buku/{{$item->id}}/edit" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-sm btn-info"><i class="fa fa-print"></i></a>
+                                    <a href="/buku/{{$item->id}}/print" class="btn btn-sm btn-info"><i class="fa fa-print"></i></a>
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-sm btn-danger" data-id="{{$item->id}}" onclick="confirmDelete(this)"><i class="fa fa-trash"></i></a>

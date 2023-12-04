@@ -52,6 +52,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/anggota/{id}', [AnggotaController::class, 'destroy']);
 
     Route::get('/buku', [BukuController::class, 'index']);
+    Route::get('/buku/{id}/print', [BukuController::class, 'print']);
     Route::post('/buku/store', [BukuController::class, 'store']);
     Route::get('/buku/{id}/edit', [BukuController::class, 'edit']);
     Route::put('/buku/{id}', [BukuController::class, 'update']);

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BukuController extends Controller
 {
@@ -153,5 +154,12 @@ class BukuController extends Controller
         $buku->delete();
 
         return redirect('buku')->with('sukses', 'Data berhasil di hapus');
+    }
+
+    public function print($id)
+    {
+        $buku = Buku::find($id);
+        $pdf = Pdf::loadView('buku.print', compact('buku'));
+        return $pdf->stream();
     }
 }
